@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <title>Chatty</title>
+</head>
+
+<body>
+    <style>
+        .vid-bg {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        
+        video {
+            max-width: none;
+        }
+    </style>
+    <video src="https://user-images.githubusercontent.com/55245862/117535290-c242f500-b012-11eb-8ae2-1bd734c0e112.mp4" class="vid-bg" autoplay loop muted></video>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <img src="https://i.dlpng.com/static/png/376589_preview.png" alt="chatty" width="112" height="28">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                <div class="column is-6 is-offset-3 mb-6">
+                    <section class="hero is-primary">
+                        <div class="hero-body">
+                            <p class="title">
+                                Chatty
+                            </p>
+                            <p class="subtitle">
+                                A simple chat built with Django, Channels and Redis
+                            </p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="column is-6 is-offset-3">
+                    <section class="hero is-link box ">
+                        <div class="hero-body">
+                            <div class="field">
+                                <label>Room name</label>
+
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Room name" id="room-name-input">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label>Username</label>
+
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Username" id="username-input">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <a class="button is-dark is-rounded" id="room-name-submit">Submit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            var userName = document.querySelector('#username-input').value;
+
+            window.location.replace(roomName + '/?username=' + userName);
+        };
+    </script>
+</body>
+
+</html>
